@@ -1,0 +1,208 @@
+<!-- <section>
+  <div class="container" style="">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col">
+        <div class="card card-registration my-5">
+          <div class="row g-0">
+            <div class="col-xl-6 d-none d-xl-block">
+              <img src="https://touringhighlights.com/wp-content/uploads/2020/07/Cau-Rong-Dragon-Bridge-Da-Nang-Vietnam.jpg"
+                alt="Sample photo" class="w-100 h-100vh"
+                style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem; object-fit:initial; display: block;" />
+            </div>
+            <div class="col-xl-6">
+              <div class="card-body p-md-5 text-black">
+                <h3 class="mb-3 text-uppercase">Sign up</h3>
+
+                  <form #authForm="ngForm" (submit)="onSubmit(authForm)">
+
+                      <div class="form-outline mb-3">
+                          <label class="form-label" for="form3Example1m">Name</label>
+                          <input type="text" id="form3Example1m" required ngModel #name="ngModel" name="name" class="form-control" />
+                          <div *ngIf="name.invalid && (name.dirty || name.touched)" class="mt-1">
+                              <div class="invalid-input" *ngIf="name.errors?.['required']">Tên không được để trống!</div>
+                          </div>
+                      </div>
+
+                      <div class="form-outline mb-3">
+                          <label class="form-label" for="form3Example8">Email</label>
+                          <input type="email" id="form3Example8" required email ngModel #email="ngModel" name="email" class="form-control" />
+                          <div *ngIf="email.invalid && (email.dirty || email.touched)" class="mt-1">
+                              <div class="invalid-input" *ngIf="email.errors?.['required']">Email không được để trống!</div>
+                              <div class="invalid-input" *ngIf="email.errors?.['email']">Email không đúng định dạng!</div>
+                          </div>
+                      </div>
+
+                      <div class="form-outline mb-3">
+                          <label class="form-label" for="form3Example9">Password</label>
+                          <input type="password" id="form3Example9" required minlength="6" #pass="ngModel" ngModel name="password" class="form-control" />
+                          <div *ngIf="pass.invalid && (pass.dirty || pass.touched)" class="mt-1">
+                              <div class="invalid-input" *ngIf="pass.errors?.['required']">Mật khẩu không được để trống!</div>
+                              <div class="invalid-input" *ngIf="pass.errors?.['minlength']">Mật khẩu ít nhất 6 ký tự!</div>
+                          </div>
+                      </div>
+
+                      <div class="row">
+
+                              <div class="form-outline mb-3">
+                                  <label class="form-label" for="form3Example10">Phone Number</label>
+                                  <input type="text" id="form3Example10" required ngModel #phoneNumber="ngModel" name="phone" class="form-control" />
+                                  <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)" class="mt-1">
+                                      <div class="invalid-input" *ngIf="phoneNumber.errors?.['required']">Số điện thoại không được để trống!</div>
+                                  </div>
+                              </div>
+
+
+                              <label class="form-label">Area</label>
+                              <select class="form-select" name="area" required #area="ngModel" ngModel>
+                                  <option disabled selected value="">-- Select Area --</option>
+                                  <option *ngFor="let area of areas" value={{area._id}}>{{area.nameArea}}</option>
+                              </select>
+                              <div *ngIf="area.invalid && (area.dirty || area.touched)" class="mt-1">
+                                  <div class="invalid-input" *ngIf="area.errors?.['required']">Vui lòng chọn một khu vực!</div>
+                              </div>
+
+                      </div>
+                      <div class="d-flex justify-content-end pt-3">
+                          <button type="reset" class="btn btn-light">Reset</button>
+                          <button type="submit" class="btn btn-success ms-2" [disabled]="!authForm.valid">Signup</button>
+                      </div>
+                  </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<div class="container mt-4">
+
+  <!-- Section: Design Block -->
+<section class="background-radial-gradient overflow-hidden">
+  <style>
+    .background-radial-gradient {
+      margin-bottom: 20px;
+      background-color: hsl(219, 39%, 36%);
+      background-image: radial-gradient(650px circle at 0% 0%,
+          hsl(218, 41%, 35%) 15%,
+          hsl(218, 41%, 30%) 35%,
+          hsl(218, 41%, 20%) 75%,
+          hsl(218, 41%, 19%) 80%,
+          transparent 100%),
+        radial-gradient(1250px circle at 100% 100%,
+          hsl(218, 41%, 45%) 15%,
+          hsl(218, 41%, 30%) 35%,
+          hsl(218, 41%, 20%) 75%,
+          hsl(218, 41%, 19%) 80%,
+          transparent 100%);
+    }
+
+    #radius-shape-1 {
+      height: 220px;
+      width: 220px;
+      top: -60px;
+      left: -130px;
+      background: radial-gradient(#44006b, #ad1fff);
+      overflow: hidden;
+    }
+
+    #radius-shape-2 {
+      border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+      bottom: -60px;
+      right: -110px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(#44006b, #ad1fff);
+      overflow: hidden;
+    }
+
+    .bg-glass {
+      background-color: hsla(0, 0%, 100%, 0.9) !important;
+      backdrop-filter: saturate(200%) blur(25px);
+    }
+  </style>
+
+  <div class="container px-4 py-5 px-md-5 text-center text-lg-start ">
+    <div class="row gx-lg-5 align-items-center mb-5">
+      <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+        <h1 class="my-3 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
+          Welcome to <br />
+          <span style="color: hsl(218, 81%, 75%)">Signup Mananger</span>
+        </h1>
+        <p class="mb-3 opacity-70" style="color: hsl(218, 81%, 85%)">
+          Đăng kí vào Mananger project, mang đến cho bạn sự trải nghiệm thú vị mới.
+
+        </p>
+      </div>
+
+      <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+        <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+        <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+
+        <div class="card bg-glass">
+          <div class="card-body px-4 py-5 px-md-5">
+            <form #authForm="ngForm" (submit)="onSubmit(authForm)">
+              <h1 class="text-center">Đăng kí</h1>
+              <div class="form-outline mb-3">
+                  <label class="form-label" for="form3Example1m">Name</label>
+                  <input type="text" id="form3Example1m" required ngModel #name="ngModel" name="name" class="form-control" />
+                  <div *ngIf="name.invalid && (name.dirty || name.touched)" class="mt-1">
+                      <div class="invalid-input" *ngIf="name.errors?.['required']">Tên không được để trống!</div>
+                  </div>
+              </div>
+
+              <div class="form-outline mb-3">
+                  <label class="form-label" for="form3Example8">Email</label>
+                  <input type="email" id="form3Example8" required email ngModel #email="ngModel" name="email" class="form-control" />
+                  <div *ngIf="email.invalid && (email.dirty || email.touched)" class="mt-1">
+                      <div class="invalid-input" *ngIf="email.errors?.['required']">Email không được để trống!</div>
+                      <div class="invalid-input" *ngIf="email.errors?.['email']">Email không đúng định dạng!</div>
+                  </div>
+              </div>
+
+              <div class="form-outline mb-3">
+                  <label class="form-label" for="form3Example9">Password</label>
+                  <input type="password" id="form3Example9" required minlength="6" #pass="ngModel" ngModel name="password" class="form-control" />
+                  <div *ngIf="pass.invalid && (pass.dirty || pass.touched)" class="mt-1">
+                      <div class="invalid-input" *ngIf="pass.errors?.['required']">Mật khẩu không được để trống!</div>
+                      <div class="invalid-input" *ngIf="pass.errors?.['minlength']">Mật khẩu ít nhất 6 ký tự!</div>
+                  </div>
+              </div>
+
+              <div class="">
+
+                      <div class="form-outline mb-3">
+                          <label class="form-label" for="form3Example10">Phone Number</label>
+                          <input type="text" id="form3Example10" required ngModel #phoneNumber="ngModel" name="phone" class="form-control" />
+                          <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)" class="mt-1">
+                              <div class="invalid-input" *ngIf="phoneNumber.errors?.['required']">Số điện thoại không được để trống!</div>
+                          </div>
+                      </div>
+
+
+                      <label class="form-label">Area</label>
+                      <select class="form-select" name="area" required #area="ngModel" ngModel>
+                          <option disabled selected value="">-- Select Area --</option>
+                          <option *ngFor="let area of areas" value={{area._id}}>{{area.nameArea}}</option>
+                      </select>
+                      <div *ngIf="area.invalid && (area.dirty || area.touched)" class="mt-1">
+                          <div class="invalid-input" *ngIf="area.errors?.['required']">Vui lòng chọn một khu vực!</div>
+                      </div>
+
+              </div>
+
+              <div class="d-flex justify-content-end pt-3">
+                  <button type="reset" class="btn btn-light">nhập lại</button>
+                  <button type="submit" class="btn btn-success ms-2" [disabled]="!authForm.valid">Đăng kí</button>
+              </div>
+
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Section: Design Block -->
+  </div>

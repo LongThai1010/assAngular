@@ -1,0 +1,44 @@
+<section id="loginPage">
+  <div class="container p-5" >
+    <div class="row mt-2">
+      <div class="col-6 offset-3">
+        <app-message></app-message>
+        <hr>
+        <form #authForm="ngForm">
+
+          <div class="card">
+            <div class="card-header">
+              <h3 class="text-center">Login</h3>
+            </div>
+            <div class="card-body">
+
+
+              <div class="form-group">
+                <label for="name">email</label>
+                <input type="email" id="form3Example8" required email [(ngModel)]="employee.email" #email="ngModel" name="email" class="form-control" placeholder="Email"/>
+                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="mt-1">
+                  <div class="invalid-input" *ngIf="email.errors?.['required']">Email không được để trống!</div>
+              </div>
+              </div>
+
+              <div class="form-group">
+                <label for="name">password</label>
+                <input type="password" [(ngModel)]="employee.password" required password name="password" #password="ngModel" class="form-control" placeholder="Password" aria-describedby="passwordHid">
+                <div *ngIf="password.invalid && (password.dirty || password.touched)" class="mt-1">
+                  <div class="invalid-input" *ngIf="password.errors?.['required']">password không được để trống!</div>
+              </div>
+              </div>
+
+
+
+
+            </div>
+            <div class="card-footer text-muted">
+              <button class="btn btn-outline-primary btn-block" [disabled]="!authForm.valid" (click)="login()">Login</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

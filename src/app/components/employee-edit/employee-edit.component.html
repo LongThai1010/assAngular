@@ -1,0 +1,71 @@
+<section id="employeeEdit">
+  <div class="container p-2">
+    <div class="row mt-2">
+      <div class="col-8 offset-2">
+        <app-message></app-message>
+        <hr>
+        <form action="">
+
+          <div class="card">
+            <div class="card-header">
+              <h3 class="text-center">Edit employee</h3>
+            </div>
+            <div class="card-body">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" [(ngModel)]="employee.name" name="name" id="name" class="form-control" placeholder="Name" aria-describedby="nameHid">
+                <small id="nameHid" class="text-muted">Name is required</small>
+              </div>
+
+              <div class="form-group">
+                <label for="name">email</label>
+                <input type="text" [(ngModel)]="employee.email" name="email" id="email" class="form-control" placeholder="email" aria-describedby="emailHid">
+                <small id="emailHid" class="text-muted">email is required</small>
+              </div>
+
+              
+
+              <div class="form-group">
+                <label for="name">phone</label>
+                <input type="number" [(ngModel)]="employee.phone" name="phone" id="phone" class="form-control" placeholder="phone" aria-describedby="phoneHid">
+                <small id="phoneHid" class="text-muted">phone is required</small>
+              </div>
+
+              <div class="form-group">
+                <label for="zone">Zone</label>
+                <select class="form-control" [(ngModel)]="employee.zone" name="zone" id="zone">
+                  <option>East</option>
+                  <option>West</option>
+                  <option>South</option>
+                  <option>North</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="status">status</label>
+                <select class="form-control" [(ngModel)]="employee.status" name="status" id="status">
+                  <option>Working</option>
+                  <option>Pending</option>
+                  <option>Resigned</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="status">role</label>
+                <select class="form-control" [(ngModel)]="employee.role" name="role" id="role">
+                  <option>Leader</option>
+                  <option>Employee</option>
+                </select>
+              </div>
+
+
+            </div>
+            <div class="card-footer text-muted">
+              <button class="btn btn-outline-primary btn-block" (click)="update()">Update</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

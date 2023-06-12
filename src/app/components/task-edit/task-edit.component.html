@@ -1,0 +1,81 @@
+<div id= "taskEdit">
+
+  <form #taskAddForm="ngForm">
+    <ng-template #content let-c="close" let-d="dismiss">
+      <div class="modal-header">
+        <h4 class="modal-title">ADD New task</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-message></app-message>
+        <div *ngIf="doing" class="m-auto">
+          <h1 class="text-center display-3 mt-5">
+            <i class="fas fa-spinner fa-spin "></i>
+          </h1>
+        </div>
+        <div *ngIf="!doing">
+
+
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" [(ngModel)]="task.nameTask"
+              class="form-control" name="nameTask" id="name" aria-describedby="NameId" placeholder="nameTask">
+
+          </div>
+
+          <div class="row mb-3">
+
+            <div class="col">
+                <label class="form-label fw-bold">Ưu tiên</label>
+                <select class="form-select" aria-label="Default select example" required ngModel #priority="ngModel" name="priority">
+                    <option disabled value="">Chọn sự ưu tiên</option>
+                    <option value="Less Important">Less Important</option>
+                    <option value="Normal">Normal</option>
+                    <option value="Important">Important</option>
+                </select>
+                <div *ngIf="priority.invalid && (priority.dirty || priority.touched)" class="mt-1">
+                    <div class="invalid-input" *ngIf="priority.errors?.['required']">Vui lòng chọn sự ưu tiên!</div>
+                </div>
+            </div>
+        </div>
+
+
+          <div class="form-group">
+            <label for="startDate">Start Date</label>
+            <input type="date" [(ngModel)]="task.dateStart"
+              class="form-control" name="dateStart" id="startDate" aria-describedby="startDateId" placeholder="dateStart">
+
+          </div>
+
+          <div class="form-group">
+
+              <label class="form-label fw-bold">Trạng thái</label>
+              <select class="form-select" aria-label="Default select example" required ngModel #status="ngModel" name="status">
+                  <option disabled value="">Chọn trạng thái</option>
+                  <option value="Holding">Holding</option>
+                  <option value="Processing">Processing</option>
+                  <option value="Done">Done</option>
+              </select>
+
+
+          </div>
+
+          <div class="form-outline mb-3">
+            <label class="form-label fw-bold" for="description">Mô tả</label>
+            <textarea type="text" id="description" class="form-control" [(ngModel)]="task.description" name="description"></textarea>
+
+        </div>
+
+      </div>
+    </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+        <button type="button" class="btn btn-outline-primary" (click)="update()">Update</button>
+      </div>
+    </ng-template>
+    <button class="btn btn-outline-primary float-right m-3" (click)="open(content)"><i class="fas fa-edit    "></i></button>
+  </form>
+
+</div>

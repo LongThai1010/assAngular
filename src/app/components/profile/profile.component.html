@@ -1,0 +1,140 @@
+<!--
+
+<div class="container m-auto">
+
+<div *ngIf="data.employee" >
+  <div class="row">
+    <div class="col-sm-3">
+      <p class="mb-0">Name</p>
+    </div>
+    <div class="col-sm-9">
+      <input type="text" class="text-muted mb-0" class="form-control" required #name="ngModel" name="name" [(ngModel)]="data.employee.name" />
+      <div *ngIf="name.invalid && (name.dirty || name.touched)" class="mt-1">
+        <div class="invalid-input" *ngIf="name.errors?.['required']">Name không được để trống!</div>
+    </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-sm-3">
+      <p class="mb-0">Email</p>
+    </div>
+    <div class="col-sm-9">
+      <input type="email" class="text-muted mb-0" class="form-control" required email #email="ngModel" name="email" [(ngModel)]="data.employee.email"  />
+      <div *ngIf="email.invalid && (email.dirty || email.touched)" class="mt-1">
+        <div class="invalid-input" *ngIf="email.errors?.['required']">Email không được để trống!</div>
+        <div class="invalid-input" *ngIf="email.errors?.['email']">Email không đúng định dạng!</div>
+    </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-sm-3">
+      <p class="mb-0">Phone</p>
+    </div>
+    <div class="col-sm-9">
+      <input type="number" class="text-muted mb-0" class="form-control" required #phone="ngModel" name="phoneNumber" [(ngModel)]="data.employee.phone"  />
+      <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="mt-1">
+        <div class="invalid-input" *ngIf="phone.errors?.['required']">Phone number không được để trống!</div>
+    </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-sm-3">
+      <p class="mb-0">Role</p>
+    </div>
+    <div class="col-sm-9">
+      <p class="text-muted mb-0">{{data.employee.role === 'Leader' ? 'Leader' : 'Employee'}}</p>
+    </div>
+</div>
+
+</div> -->
+
+
+<section style="background-color: #eee; height: 100vh;" *ngIf="data.employee" >
+  <div class="container py-5">
+    <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+          <ol class="breadcrumb mb-0">
+
+            <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            <img [src]="data.employee.image" alt="avatar"
+              class="rounded-circle img-fluid" style="width: 150px;">
+            <h5 class="my-3">{{data.employee.name}}</h5>
+
+            <p class="text-muted mb-4">{{data.employee.area}}</p>
+            <div class="d-flex justify-content-center mb-2">
+              <button type="button" class="btn btn-primary">Follow</button>
+              <button type="button" class="btn btn-outline-primary ms-1">Message</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div *ngIf="data.employee" >
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Name</p>
+                </div>
+                <div class="col-sm-9">
+                  <input type="text" class="text-muted mb-0" class="form-control" required #name="ngModel" name="name" [(ngModel)]="data.employee.name" />
+                  <div *ngIf="name.invalid && (name.dirty || name.touched)" class="mt-1">
+                    <div class="invalid-input" *ngIf="name.errors?.['required']">Name không được để trống!</div>
+                </div>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Email</p>
+                </div>
+                <div class="col-sm-9">
+                  <input type="email" class="text-muted mb-0" class="form-control" required email #email="ngModel" name="email" [(ngModel)]="data.employee.email"  />
+                  <div *ngIf="email.invalid && (email.dirty || email.touched)" class="mt-1">
+                    <div class="invalid-input" *ngIf="email.errors?.['required']">Email không được để trống!</div>
+                    <div class="invalid-input" *ngIf="email.errors?.['email']">Email không đúng định dạng!</div>
+                </div>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Phone</p>
+                </div>
+                <div class="col-sm-9">
+                  <input type="number" class="text-muted mb-0" class="form-control" required phone #phone="ngModel" name="phone" [(ngModel)]="data.employee.phone"  />
+                  <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="mt-1">
+                    <div class="invalid-input" *ngIf="phone.errors?.['required']">Phone number không được để trống!</div>
+                </div>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Role</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{data.employee.role === 'Leader' ? 'Leader' : 'Employee'}}</p>
+                </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

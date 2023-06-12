@@ -1,0 +1,69 @@
+<section id="projectList">
+  <div class="container p-2">
+    <div class="row mt-2">
+      <div class="col-12 offset-0">
+        <app-message></app-message>
+        <hr>
+        <div *ngIf="!tasks" class="m-auto">
+          <h1 class="text-center display-3 mt-5"><i class="fas fa-spinner fa-spin"></i></h1>
+        </div>
+        <div class="card bg-light" *ngIf="tasks">
+          <div>
+            <app-task-add (savingFinished)="finishAndAlert($event)"></app-task-add>
+          </div>
+         <table class="table">
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Name Task</th>
+              <th>Start Date</th>
+              <th>status</th>
+              <th>priority</th>
+              <th>description</th>
+              <th>Name Project</th>
+              <th>Name employee</th>
+              <th>Options</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of tasks, let i = index">
+              <td>{{i + 1}}</td>
+              <td>{{item.nameTask}}</td>
+              <td>{{item.dateStart | date }}</td>
+              <td>{{item.status }}</td>
+              <td>{{item.priority == 'Less Important' && 'Less Important' || item.priority == 'Normal' && 'Normal' || item.priority == 'Important' && 'Important'}}</td>
+              <td >{{item.description}}</td>
+              <td >{{item.project }}</td>
+              <td >{{item.assignedTo }}</td>
+              <td class="d-flex justify-center align-items-center">
+
+                <app-task-edit [id]="item._id" (updateFinished)="finishAndAlert($event)"></app-task-edit>
+
+                <a  class="btn btn-outline-danger" (click)="confirmDeleteProject(content,item._id, item.nameTask)"  ><i class="fa fa-trash"></i></a>
+            </tr>
+
+          </tbody>
+         </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title">Confirmation</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+
+    </div>
+    <div class="modal-body">
+      <p>{{confirmMessage}}</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn  btn-outline-secondary" (click)="c('Close click')">No</button>
+      <button type="button" class="btn  btn-outline-danger" (click)="deleteProject()">Yes</button>
+    </div>
+  </ng-template>
+
+</section>
